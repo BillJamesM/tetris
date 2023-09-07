@@ -13,6 +13,8 @@ import java.util.LinkedList;
 import java.util.List;
 import model.wallkicks.WallKick;
 
+import javax.swing.*;
+
 /**
  * Represents a Tetris board. Board objects communicate with clients via Observer pattern. 
  * <p>Clients can expect Board objects to call notifyObservers with four different

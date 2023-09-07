@@ -219,6 +219,5 @@ public class BoardPanel extends JPanel implements PropertyChangeListener {
         }
 
         repaint();
-        //System.out.println("Board Panel: " + myTimerCounter);
     }
 }
