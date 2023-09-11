@@ -75,8 +75,14 @@ public class TetrisGame extends JPanel implements PropertyChangeListener {
 
     private void setUpPanels() {
         setMenu();
-        setBoardPanel();
         setRightSide();
+        setBoardPanel();
+        setBottom();
+    }
+
+    private void setBottom() {
+        myInfoPanel = new InfoPanel(myBoard, this);
+        add(myInfoPanel, BorderLayout.WEST);
     }
 
     private void setBoardPanel() {
@@ -140,14 +146,10 @@ public class TetrisGame extends JPanel implements PropertyChangeListener {
      */
     private void setRightSide() {
         /*
-         * JPanel that holds the info.
-         */
-        myInfoPanel = new InfoPanel(myBoard, this);
-
-        /*
          * JPanel that holds the next tetris piece that will come to the Board.
          */
         myNextPiecePanel = new NextPiecePanel(myBoard);
+        myInfoPanel = new InfoPanel(myBoard, this);
 
         /*
          * The JPanel next to the Board JPanel.
@@ -155,11 +157,12 @@ public class TetrisGame extends JPanel implements PropertyChangeListener {
          * the next tetris piece to be shown and the info.
          */
         final JPanel rightPanel = new JPanel(new GridLayout(0, 1));
-        rightPanel.add(myInfoPanel);
         rightPanel.add(myNextPiecePanel);
+        rightPanel.setPreferredSize(new Dimension(167, 100));
         //add the right side into our tetris screen
         add(rightPanel, BorderLayout.EAST);
     }
+
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
